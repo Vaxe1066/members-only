@@ -15,9 +15,9 @@ const UserSchema = new Schema(
 
 
 UserSchema
-.virtual('url')
+.virtual('userid')
 .get(function () {
-    return '/catalog/category/' + this._id;
+    return this._id;
 });
 
 //virtual for full name 

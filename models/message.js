@@ -7,7 +7,7 @@ const MessageSchema = new Schema(
         title: {type: String, required: true, maxLength: 200},
         message: {type: String, required: true, maxLength: 200},
         timestamp: {type: Date, default:Date.now},
-        User: {type: Schema.Types.ObjectID, ref:'User'}
+        user: {type: Schema.Types.ObjectID, ref:'User'}
 
     }
 );

@@ -1,0 +1,17 @@
+extends layout 
+
+block content 
+    h1= title 
+    p !ATTENTION: You do not have sufficient membership to create a new message 
+    p To be able to create a new message, enter the secret passcode below: 
+        hr
+        form(method='POST' action='')
+            div.form-group
+                label(for='passcode') Passcode:
+                input#passcode.form-control(type='text', placeholder='Enter Passcode' name='passcode', 
+                                        required='true' )
+            button.btn.btn-primary(type='submit') Submit
+
+    if error
+        ul
+            li!= error

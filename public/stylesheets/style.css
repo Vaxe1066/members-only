@@ -3,3 +3,16 @@
   padding: 0;
   list-style: none;
 }
+
+
+#deletebtn{
+  height: 25px;
+  width: 25px;
+}
+
+
+#message-box{
+  border: 1px solid;
+  padding: 20px;
+  width: 500px;
+}

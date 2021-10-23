@@ -1,0 +1,14 @@
+extend layout 
+
+block content
+    h1= title 
+    form(method='POST' action='')
+        div.form-group
+            label(for='title') Title:
+            input#title.form-control(type='text', placeholder='Title/Heading' name='title', 
+                                required='true' )
+        div.form-group   
+            label(for='message') Message:
+            input#message.form-control(type='text', placeholder='What is your message?' name='message', 
+                                required='true' )
+        button.btn.btn-primary(type='submit') Submit
