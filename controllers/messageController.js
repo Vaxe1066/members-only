@@ -27,7 +27,7 @@ exports.create_message_get = function(req,res,next){
             return;
         }
         else if (result[0].member===true){
-            res.render('message_form', {title: "Add New Message"});
+            res.render('message_form', {title: "Add New Message", user: req.user});
             return;
         }
     })
@@ -72,3 +72,26 @@ exports.create_message_post = [
 
     }
 ];
+
+
+
+// delete messages 
+
+exports.delete_message_get = function(req,res,err) {
+    Message.findById(req.params.id)
+    .exec(function(err, results){
+        if(err) {return next(err)}
+        //success
+        res.render("message_delete", {title: results._id, message: results})
+    })
+}
+
+
+exports.delete_message_post = function(req,res,next) {
+    Message.findByIdAndDelete(req.params.id)
+    .exec(function(err, result){
+        if(err) {return next(err)}
+        //success
+        res.redirect('/')
+    })
+}

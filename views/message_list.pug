@@ -1,4 +1,4 @@
-extends layout 
+extend layout 
 
 block content
   h1= title
@@ -11,10 +11,16 @@ block content
         div#message-box
           h3 #{message.title}
           p #{message.message}
-          p #{message.user.username} #{message.timestamp}
+          if !user
+            p #{message.timestamp_formatted}
           if user
-            if user.username == message.user.username
-              input#deletebtn(type='image', src='/images/Delete.svg', title='Delete Message')
+            if user.member==true
+              p #{message.user.username} - #{message.timestamp_formatted}
+              if user.username == message.user.username
+                a(href=`clubhouse/delete-message/`+message._id)
+                  input#deletebtn(type='image', src='/images/Delete.svg', title='Delete Message')
+ 
+    
 
           
     

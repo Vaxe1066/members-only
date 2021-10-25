@@ -1,0 +1,11 @@
+extend layout
+
+block content 
+    h1 Delete Message: #{title}
+    div#message-box
+     h3 #{message.title}
+     p #{message.message}
+     p #{message.user.username} #{message.timestamp}
+
+        form(method='POST' action='')
+            button.btn.btn-primary(type='submit') Delete

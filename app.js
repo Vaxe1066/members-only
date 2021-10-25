@@ -9,6 +9,9 @@ var logger = require('morgan');
 const passport = require("passport");
 const session = require("express-session");
 
+var compression = require('compression');
+var helmet = require('helmet');
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var clubhouseRouter = require('./routes/clubhouse');
@@ -38,6 +41,8 @@ app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(helmet());
+app.use(compression()); //Compress all routes
 app.use(function(req, res, next) {
     res.locals.currentUser = req.user;
     next();

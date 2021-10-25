@@ -15,7 +15,11 @@ router.get('/', message_controller.message_list);
 
 router.get('/create-message', message_controller.create_message_get);
 
-router.post('/create-message', message_controller.create_message_post)
+router.post('/create-message', message_controller.create_message_post);
+
+router.get('/delete-message/:id', message_controller.delete_message_get);
+
+router.post('/delete-message/:id', message_controller.delete_message_post)
 
 
 
